@@ -7,13 +7,14 @@
     <style>
         html, body {
             height: 100%;
+            margin: 0;
         }
 
         #container {
             width: 1000px;
-            height: 90%;
+            height: 80%;
             border: solid 2px black;
-            margin: 0 auto;
+            margin: 60px auto 0 auto;
             overflow: scroll;
         }
 
@@ -24,13 +25,13 @@
         .tail-header {
             height: 40px;
             background-color: red;
+            border-bottom: solid 1px black;
         }
 
         .stuck {
             position: fixed;
-            top: 0;
+            top: 62px;
             width: 985px;
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -163,10 +164,14 @@
     <script src="bower_components/jquery-waypoints/lib/shortcuts/sticky.js"></script>
 
     <script>
-        var sticky = new Waypoint.Sticky({
-            element: $('.tail-header:eq(0)'),
-            context: $('#container')
-        });
+        var tailHeaders = $('.tail-header');
+
+        for(var i = 0; i < tailHeaders.length; i++) {
+            new Waypoint.Sticky({
+                element: tailHeaders[i],
+                context: $('#container')
+            });
+        }
     </script>
 </body>
 </html>
