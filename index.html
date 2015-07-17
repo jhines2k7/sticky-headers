@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <title>Sticky Headers</title>
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-waypoints/lib/jquery.waypoints.js"></script>
-    <script src="bower_components/jquery-waypoints/lib/shortcuts/sticky.js"></script>
-
     <style>
         html, body {
             height: 100%;
@@ -28,6 +24,13 @@
         .tail-header {
             height: 40px;
             background-color: red;
+        }
+
+        .stuck {
+            position: fixed;
+            top: 0;
+            width: 985px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -154,5 +157,16 @@
                 quis unde.</p>
         </div>
     </div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-waypoints/lib/jquery.waypoints.js"></script>
+    <script src="bower_components/jquery-waypoints/lib/shortcuts/sticky.js"></script>
+
+    <script>
+        var sticky = new Waypoint.Sticky({
+            element: $('.tail-header:eq(0)'),
+            context: $('#container')
+        });
+    </script>
 </body>
 </html>
